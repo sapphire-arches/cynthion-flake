@@ -18,11 +18,11 @@
       };
       inherit (pkgs) lib;
     in rec {
-      devShells.default = pkgs.mkShell {
-
-      };
+      devShells.default =
+        pkgs.mkShell {
+        };
       packages = {
-        inherit (pkgs) packetry cynthion cynthion-udev;
+        inherit (pkgs) packetry cynthion cynthion-udev apollo-cynthion cynthion-gateware;
       };
     })
     // {

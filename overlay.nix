@@ -3,6 +3,9 @@ final: prev: {
   python-cynthion = final.python3.override {
     packageOverrides = import ./pkgs/python;
   };
-  cynthion = final.python-cynthion.pkgs.callPackage ./pkgs/cynthion {};
-  cynthion-udev = final.python-cynthion.pkgs.callPackage ./pkgs/cynthion/udev.nix {};
+  apollo-cynthion = final.python-cynthion.pkgs.callPackage ./pkgs/cynthion/apollo-firmware.nix {board = "cynthion";};
+  cynthion = final.callPackage ./pkgs/cynthion {};
+  cynthion-unwrapped = final.python-cynthion.pkgs.callPackage ./pkgs/cynthion/cynthion.nix {};
+  cynthion-gateware = final.callPackage ./pkgs/cynthion/gateware.nix {};
+  cynthion-udev = final.callPackage ./pkgs/cynthion/udev.nix {};
 }
