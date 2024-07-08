@@ -30,3 +30,4 @@ A nix flake packaging [cynthion](https://github.com/greatscottgadgets/cynthion/)
 - [cynthion](https://github.com/greatscottgadgets/cynthion/)
 - cynthion-udev
 - [packetry](https://github.com/greatscottgadgets/packetry)
+- [apollo-fpga](https://github.com/greatscottgadgets/apollo)
