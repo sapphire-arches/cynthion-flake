@@ -1,6 +1,7 @@
 {
   cynthion-unwrapped,
   cynthion-gateware,
+  cynthion-moondancer,
   apollo-cynthion,
   ...
 }:
@@ -9,9 +10,12 @@
 cynthion-unwrapped.overrideAttrs (oldAttrs: {
   pname = "cynthion";
 
-  postInstall = oldAttrs.postInstall + ''
-    mkdir -p $out/share/assets
-    cp ${apollo-cynthion}/share/assets/apollo.bin $out/share/assets/apollo.bin
-    cp -r ${cynthion-gateware}/share/assets/* $out/share/assets
-  '';
+  postInstall =
+    oldAttrs.postInstall
+    + ''
+      mkdir -p $out/share/assets
+      cp ${apollo-cynthion}/share/assets/apollo.bin $out/share/assets/apollo.bin
+      cp ${cynthion-moondancer}/share/assets/moondancer.bin $out/share/assets/moondancer.bin
+      cp -r ${cynthion-gateware}/share/assets/* $out/share/assets
+    '';
 })

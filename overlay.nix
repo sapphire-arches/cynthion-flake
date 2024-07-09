@@ -7,6 +7,7 @@ final: prev: {
   cynthion = final.callPackage ./pkgs/cynthion {};
   cynthion-unwrapped = final.python-cynthion.pkgs.callPackage ./pkgs/cynthion/cynthion.nix {};
   cynthion-gateware = final.callPackage ./pkgs/cynthion/gateware.nix {};
+  cynthion-moondancer = final.callPackage ./pkgs/cynthion/moondancer-bin.nix {};
   cynthion-udev = final.callPackage ./pkgs/cynthion/udev.nix {};
   apollo-fpga = final.python-cynthion.pkgs.apollo-fpga;
 }
