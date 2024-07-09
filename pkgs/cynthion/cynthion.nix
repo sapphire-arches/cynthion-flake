@@ -27,7 +27,7 @@
 in
   buildPythonPackage rec {
     pname = "cynthion-unwrapped";
-    version = "0.1.0";
+    version = "0.1.2";
 
     outputs = ["out" "udev"];
     pyproject = true;
@@ -59,8 +59,7 @@ in
 
     postPatch = ''
       substituteInPlace cynthion/python/src/commands/util.py \
-        --replace-fail "module_path, '../../assets/'" "\"$out/share/assets\"" \
-        --replace-fail "module_path, '../../assets'" "\"$out/share/assets\""
+        --replace-fail 'os.path.join(pkg_path, "assets")' "\"$out/share/assets\""
     '';
 
     preBuild = ''

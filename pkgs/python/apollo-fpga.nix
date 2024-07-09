@@ -16,15 +16,16 @@
 in
   buildPythonPackage rec {
     pname = "apollo-fpga";
-    version = "1.0.6";
+    version = "1.0.7";
 
     pyproject = true;
 
     src = fetchFromGitHub {
       owner = "greatscottgadgets";
       repo = "apollo";
-      rev = "3a0e3a214eb1e6a9434b8e0bf15bcf7cf54f8242";
-      hash = "sha256-t3XtBzinMysIBgONPIGLqFXpzBaCqMfY3sufjtRc7Io=";
+      rev = "v1.0.7";
+      hash = "sha256-sREQpe28MBW+RGFag4OLZsjjvUan6ctZ83aFOMuc3EU=";
+      fetchSubmodules = true;
     };
 
     nativeBuildInputs = [

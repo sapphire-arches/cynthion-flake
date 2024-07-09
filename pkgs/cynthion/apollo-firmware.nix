@@ -20,13 +20,13 @@
 in
   stdenv.mkDerivation rec {
     pname = "apollo-${board}";
-    version = "1.0.6";
+    version = "1.0.7";
 
     src = fetchFromGitHub {
       owner = "greatscottgadgets";
       repo = "apollo";
-      rev = "v1.0.6";
-      hash = "sha256-QinJzMZGZo1a1glj1r9NZIoUlQn2gb+rOc7uojBENR4=";
+      rev = "v1.0.7";
+      hash = "sha256-sREQpe28MBW+RGFag4OLZsjjvUan6ctZ83aFOMuc3EU=";
       fetchSubmodules = true;
     };
 
