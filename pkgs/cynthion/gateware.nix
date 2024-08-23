@@ -1,39 +1,18 @@
 {
-  stdenvNoCC,
+  symlinkJoin,
+  cynthion-gateware-single,
   cynthion-unwrapped,
-  zsh,
-  yosys,
-  nextpnr,
-  trellis,
+  lib,
   ...
-}:
-stdenvNoCC.mkDerivation {
-  pname = "cynthion-gateware";
-  inherit (cynthion-unwrapped) version src;
-  dontFixup = true;
-
-  nativeBuildInputs = [
-    cynthion-unwrapped
-    yosys
-    nextpnr
-    trellis
-    zsh
-  ];
-
-  preBuild = ''
-    cd cynthion/python
-  '';
-
-  buildPhase = ''
-    runHook preBuild
-
-    make -j $NIX_BUILD_CORES SHELL=zsh bitstreams
-
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    mkdir -p $out/share
-    cp -r assets $out/share
-  '';
+}: let
+  inherit (lib) crossLists;
+  platformVersions = ["0D1" "0D2" "0D3" "0D4" "0D5" "0D6" "0D7" "1D0" "1D1" "1D2" "1D3" "1D4"];
+  bitstreams = ["analyzer" "selftest" "facedancer"];
+  gatewares = crossLists (platform: bitstream: (cynthion-gateware-single.override {
+    inherit bitstream;
+    platform = "CynthionPlatformRev${platform}";
+  })) [platformVersions bitstreams];
+in symlinkJoin {
+  name = "cynthion-gateware-${cynthion-unwrapped.version}";
+  paths = gatewares;
 }
