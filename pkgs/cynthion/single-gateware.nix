@@ -8,7 +8,8 @@
   bitstream ? null,
   platform ? null,
   ...
-}: stdenvNoCC.mkDerivation {
+}:
+stdenvNoCC.mkDerivation {
   pname = "cynthion-gateware-${bitstream}";
   version = "${cynthion-unwrapped.version}-${platform}";
 
