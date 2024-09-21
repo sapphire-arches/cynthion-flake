@@ -1,0 +1,56 @@
+name: "CI"
+on:
+  pull_request:
+  push:
+
+jobs:
+  gateware-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+      - id: set-matrix
+        run: echo "matrix=$(nix eval --json ".#gateware-matrix")" | tee $GITHUB_OUTPUT
+
+  build-gateware:
+    needs: [gateware-matrix]
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.gateware-matrix.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+      - uses: icewind1991/attic-action@v1
+        with:
+          name: ci
+          instance: https://cache.icewind.me
+          authToken: '${{ secrets.ATTIC_TOKEN }}'
+      - run: nix build .#cynthion-gateware-individual.${{ matrix.bitstream }}-${{ matrix.platform }}
+
+  build-packetry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+      - uses: icewind1991/attic-action@v1
+        with:
+          name: ci
+          instance: https://cache.icewind.me
+          authToken: '${{ secrets.ATTIC_TOKEN }}'
+      - run: nix build .#packetry
+
+  build-cynthion:
+    needs: [ build-gateware ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+      - uses: icewind1991/attic-action@v1
+        with:
+          name: ci
+          instance: https://cache.icewind.me
+          authToken: '${{ secrets.ATTIC_TOKEN }}'
+      - run: nix build .#cynthion
