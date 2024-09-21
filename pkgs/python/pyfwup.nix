@@ -11,15 +11,15 @@
 in
   buildPythonPackage rec {
     pname = "pyfwup";
-    version = "0.4.0";
+    version = "0.5.2";
 
     pyproject = true;
 
-    src = fetchFromGitHub {
+    src = fetchFromGitHub rec {
       owner = "greatscottgadgets";
       repo = "pyfwup";
-      rev = "0.4.0";
-      hash = "sha256-JSaAEGobdLqpSj9yvKrAsXfdkHpXSCcuGYRxz2QJqck=";
+      rev = version;
+      hash = "sha256-Kyc3f8beTg0W1+U7SvZuNPN1pdsco9rBUfoEtR7AI44=";
     };
 
     nativeBuildInputs = [
