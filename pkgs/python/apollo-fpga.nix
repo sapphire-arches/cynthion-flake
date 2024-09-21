@@ -16,15 +16,15 @@
 in
   buildPythonPackage rec {
     pname = "apollo-fpga";
-    version = "1.0.7";
+    version = "1.1.0";
 
     pyproject = true;
 
     src = fetchFromGitHub {
       owner = "greatscottgadgets";
       repo = "apollo";
-      rev = "v1.0.7";
-      hash = "sha256-sREQpe28MBW+RGFag4OLZsjjvUan6ctZ83aFOMuc3EU=";
+      rev = "v" + version;
+      hash = "sha256-CVMSTjrfrtvfVFbMVvx2FYhkkonvEpiSZ+buqOzHyXk";
       fetchSubmodules = true;
     };
 
@@ -40,6 +40,10 @@ in
       pyvcd
       prompt-toolkit
       pyxdg
+    ];
+
+    pythonPath = with python3Packages; [
+      deprecation
     ];
 
     postPatch = ''

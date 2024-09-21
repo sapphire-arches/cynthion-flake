@@ -14,15 +14,15 @@
 in
   buildPythonPackage rec {
     pname = "luna-usb";
-    version = "0.1.1";
+    version = "0.1.2";
 
     pyproject = true;
 
     src = fetchFromGitHub {
       owner = "greatscottgadgets";
       repo = "luna";
-      rev = "0.1.1";
-      hash = "sha256-81GJF3QLERCmvZXYlQvb1vzJFeGMSMNMwuGoaBJE8Zg=";
+      rev = version;
+      hash = "sha256-T9V0rI6vcEpM3kN/duRni6v2plCU4B379Zx07dBGKjk=";
     };
 
     nativeBuildInputs = [

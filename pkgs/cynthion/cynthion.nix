@@ -59,7 +59,7 @@ in
 
     postPatch = ''
       substituteInPlace cynthion/python/src/commands/util.py \
-        --replace-fail 'os.path.join(pkg_path, "assets")' "\"$out/share/assets\""
+        --replace-fail 'os.path.join(package_path, "assets")' "\"$out/share/assets\""
     '';
 
     preBuild = ''

@@ -10,17 +10,17 @@
   wrapGAppsHook,
 }:
 rustPlatform.buildRustPackage rec {
-  version = "0.1.0";
+  version = "0.2.2";
   pname = "packetry";
 
-  src = fetchFromGitHub {
+  src = fetchFromGitHub rec {
     owner = "greatscottgadgets";
     repo = "packetry";
-    rev = "7af5d7fd5c3cefe0291ea8eadcec5200dc6362d0";
-    hash = "sha256-jGCSI7aI5HenF5s2SKarABHQyCaRSag9jqnihT1WvGM=";
+    rev = "v" + version;
+    hash = "sha256-FlimHJS3hwB2Tkulb8uToKFe165uv/gFxJ4uezVNka4=";
   };
 
-  cargoSha256 = "sha256-h9fFP5VGjYKt42oN/VSghfKPco+1DEh+W3fktYO8RVY=";
+  cargoSha256 = "sha256-n1hPoSUEFUGpEUOiuirSbeAnU+qiENDg4XyN5Jkjo/Y=";
 
   nativeBuildInputs = [
     wrapGAppsHook

@@ -2,6 +2,6 @@ fetchFromGitHub:
 fetchFromGitHub {
   owner = "greatscottgadgets";
   repo = "cynthion";
-  rev = "0.1.2";
-  hash = "sha256-eLimS2gghT52tV01ZlFs8xEwwibB4yezl3eW7zrHpW8=";
+  rev = "0.1.6";
+  hash = "sha256-9H82UMtQ6nzYk6TQZSv37hcp/aclrBYZn7ovoExGS/8=";
 }
