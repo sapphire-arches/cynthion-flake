@@ -40,7 +40,7 @@
         pkgs.mkShell {
         };
       packages = {
-        inherit (pkgs) packetry cynthion cynthion-udev apollo-cynthion cynthion-gateware apollo-fpga;
+        inherit (pkgs) packetry cynthion cynthion-udev apollo-cynthion cynthion-gateware apollo-fpga cynthion-unwrapped;
         inherit cynthion-gateware-individual;
       };
     })

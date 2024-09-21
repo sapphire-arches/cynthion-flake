@@ -27,7 +27,7 @@
 in
   buildPythonPackage rec {
     pname = "cynthion-unwrapped";
-    version = "0.1.2";
+    version = src.rev;
 
     outputs = ["out" "udev"];
     pyproject = true;
@@ -60,6 +60,8 @@ in
     postPatch = ''
       substituteInPlace cynthion/python/src/commands/util.py \
         --replace-fail 'os.path.join(package_path, "assets")' "\"$out/share/assets\""
+      substituteInPlace cynthion/python/pyproject.toml \
+        --replace-fail 'dynamic = ["version"]' 'version = "${version}"'
     '';
 
     preBuild = ''
