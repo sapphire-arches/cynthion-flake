@@ -22,7 +22,7 @@ A nix flake packaging [cynthion](https://github.com/greatscottgadgets/cynthion/)
 
 - Install the packages
   ```nix
-  environment.systemPackages = with pkgsl [cynthion packetry];
+  environment.systemPackages = with pkgs; [cynthion packetry];
   ```
 
 ## Provided packages
