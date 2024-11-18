@@ -5,7 +5,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "cynthion-udev";
-  version = "0.1.2";
+  version = "0.1.7";
   dontBuild = true;
   dontFixup = true;
 
