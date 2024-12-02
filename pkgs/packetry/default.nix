@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-eDVom0kAL1QwO8BtrJS76VTvxtKs7CP6Ob5BWlE6wOM=";
   };
 
-  cargoSha256 = "sha256-xz9PdVVB1u6s/anPBRonWS1kMN+4kfkK/gaOlF9Z3yk=";
+  cargoHash = "sha256-xz9PdVVB1u6s/anPBRonWS1kMN+4kfkK/gaOlF9Z3yk=";
 
   nativeBuildInputs = [
     wrapGAppsHook
