@@ -16,7 +16,7 @@
 in
   buildPythonPackage rec {
     pname = "apollo-fpga";
-    version = "1.1.0";
+    version = "1.1.1";
 
     pyproject = true;
 
@@ -24,7 +24,7 @@ in
       owner = "greatscottgadgets";
       repo = "apollo";
       rev = "v" + version;
-      hash = "sha256-CVMSTjrfrtvfVFbMVvx2FYhkkonvEpiSZ+buqOzHyXk";
+      hash = "sha256-LvEGOVnC/0hwjxrkh3pV3uU2CuRyuQVmVJGQLumcChw=";
       fetchSubmodules = true;
     };
 
