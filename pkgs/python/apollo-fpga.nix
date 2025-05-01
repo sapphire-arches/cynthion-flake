@@ -2,9 +2,9 @@
   lib,
   fetchFromGitHub,
   buildPythonPackage,
-  python3Packages,
   pkgs,
   amaranth-041,
+  deprecation,
   luna-usb,
   pyusb,
   pyvcd,
@@ -42,7 +42,7 @@ in
       pyxdg
     ];
 
-    pythonPath = with python3Packages; [
+    pythonPath = [
       deprecation
     ];
 

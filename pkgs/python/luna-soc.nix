@@ -2,7 +2,6 @@
   lib,
   fetchFromGitHub,
   buildPythonPackage,
-  python3Packages,
   pkgs,
   luna-usb,
   setuptools,
