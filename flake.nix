@@ -28,7 +28,7 @@
           platform,
           bitstream,
         }: {
-          name = "${bitstream}-${platform}";
+          name = "cynthion-gateware-${bitstream}-${platform}";
           value = pkgs.cynthion-gateware-single.override {
             inherit bitstream;
             platform = "CynthionPlatformRev${platform}";
@@ -41,8 +41,7 @@
         };
       packages = {
         inherit (pkgs) packetry cynthion cynthion-udev apollo-cynthion cynthion-gateware apollo-fpga cynthion-unwrapped;
-        inherit cynthion-gateware-individual;
-      };
+      } // cynthion-gateware-individual;
     })
     // {
       overlays.default = import ./overlay.nix;

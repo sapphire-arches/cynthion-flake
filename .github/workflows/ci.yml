@@ -28,7 +28,7 @@ jobs:
           name: ci
           instance: https://cache.icewind.me
           authToken: '${{ secrets.ATTIC_TOKEN }}'
-      - run: nix build .#cynthion-gateware-individual.${{ matrix.bitstream }}-${{ matrix.platform }}
+      - run: nix build .#cynthion-gateware-${{ matrix.bitstream }}-${{ matrix.platform }}
 
   build-packetry:
     runs-on: ubuntu-latest
