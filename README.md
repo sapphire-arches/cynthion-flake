@@ -1,3 +1,5 @@
+# These have been packaged in upstream nixpkgs, please use that instead
+
 # Cynthion-flake
 
 A nix flake packaging [cynthion](https://github.com/greatscottgadgets/cynthion/) and related tools.
